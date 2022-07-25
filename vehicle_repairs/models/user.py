@@ -1,1 +1,1 @@
-from shared_db import db
+from ..shared_db import db
