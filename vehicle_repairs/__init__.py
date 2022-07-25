@@ -1,8 +1,9 @@
+import imp
 import os
 
 from flask import Flask
 from flask_migrate import Migrate
-
+from instance import config
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -17,7 +18,7 @@ def create_app(test_config=None):
 
     # override config if needed
     if test_config is None:
-        app.config.from_object('config.DevelopmentConfig')
+        app.config.from_object(config.DevelopmentConfig)
     else:
         app.config.from_mapping(test_config)
 
@@ -27,12 +28,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from shared_db import db
+    from .shared_db import db
     db.init_app(app)
-    migrate = Migrate(app, db)
+    migrate = Migrate(app, db, directory='vehicle_repairs/migrations')
 
     # The models need to be imported here for Flask-Migrate to work
-    from models import user
+    from .models import user
 
     # Register Blueprints
     # from api import (users as _users,
