@@ -11,8 +11,8 @@ class Post(db.Model):
     thumbnail = db.Column(db.String(255))
     is_finished = db.Column(db.Boolean, nullable=False, default=False)
     like_count = db.Column(db.Integer, nullable=False, default=0)
-    user_id = db.Column(db.Integer, nullable=False)
-    vehicle_id = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='RESTRICT'), nullable=False)
+    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicles.id', ondelete='RESTRICT'), nullable=False)
     created_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now())
     updated_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
 
