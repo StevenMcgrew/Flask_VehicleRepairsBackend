@@ -33,7 +33,7 @@ def create_app(test_config=None):
     migrate = Migrate(app, db, directory='vehicle_repairs/migrations')
 
     # The models need to be imported here for Flask-Migrate to work
-    from .models import user
+    from .models import user, post, comment, vehicle, tag, post_tag
 
     # Register Blueprints
     # from api import (users as _users,
