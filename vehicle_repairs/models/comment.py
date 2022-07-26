@@ -7,8 +7,8 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     comment = db.Column(db.String(2000), nullable=False)
     like_count = db.Column(db.Integer, nullable=False, default=0)
-    post_id = db.Column(db.Integer, nullable=False)
-    user_id = db.Column(db.Integer, nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='RESTRICT'), nullable=False)
     created_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now())
     updated_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
 
