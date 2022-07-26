@@ -1,6 +1,7 @@
 from sqlalchemy.sql import func
 from ..shared_db import db
 from sqlalchemy.dialects import postgresql
+from sqlalchemy import FetchedValue, text
 
 
 class Post(db.Model):
@@ -9,10 +10,10 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False)
     repair_steps = db.Column(postgresql.JSONB)
     thumbnail = db.Column(db.String(255))
-    is_finished = db.Column(db.Boolean, nullable=False, default=False)
-    like_count = db.Column(db.Integer, nullable=False, default=0)
+    is_finished = db.Column(db.Boolean, nullable=False, server_default=text('false'))
+    like_count = db.Column(db.Integer, nullable=False, server_default=text('0'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='RESTRICT'), nullable=False)
     vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicles.id', ondelete='RESTRICT'), nullable=False)
-    created_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now())
-    updated_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
+    created_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+    updated_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'), server_onupdate=FetchedValue())
 

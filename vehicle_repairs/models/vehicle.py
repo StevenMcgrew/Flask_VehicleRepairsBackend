@@ -1,4 +1,5 @@
 from ..shared_db import db
+from sqlalchemy import text
 
 
 class Vehicle(db.Model):
@@ -8,5 +9,5 @@ class Vehicle(db.Model):
     make = db.Column(db.String(40), nullable=False)
     model = db.Column(db.String(40), nullable=False)
     engine = db.Column(db.String(5), nullable=False)
-    is_verified = db.Column(db.Boolean, nullable=False, default=False)
+    is_verified = db.Column(db.Boolean, nullable=False, server_default=text('false'))
     
