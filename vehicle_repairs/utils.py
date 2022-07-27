@@ -1,6 +1,6 @@
 import re
 
-from sqlalchemy import true
+from flask import abort
 
 
 def is_email_valid(email):
@@ -20,14 +20,20 @@ def is_password_valid(password):
         return False
     return True
 
-def is_email_available(User, _email):
-    user_with_that_email = User.query.filter_by(email=_email).first()
-    if user_with_that_email:
-        return False
-    return True
+def get_email_from_db(User, _email):
+    try:
+        user = User.query.filter_by(email=_email).first()
+        if user:
+            return user.email
+        return ''
+    except Exception as err:
+        abort(500, f'Error: {str(err)}')
 
-def is_username_available(User, _username):
-    user_with_that_username = User.query.filter_by(username=_username).first()
-    if user_with_that_username:
-        return False
-    return True
+def get_username_from_db(User, _username):
+    try:
+        user = User.query.filter_by(username=_username).first()
+        if user:
+            return user.username
+        return ''
+    except Exception as err:
+        abort(500, f'Error: {str(err)}')
