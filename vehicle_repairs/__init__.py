@@ -36,11 +36,11 @@ def create_app(test_config=None):
     from .models import user, post, comment, vehicle, tag, post_tag
 
     # Register Blueprints
-    from api import (auth, users, posts, comments, vehicles)
+    from .api import (auth, users, posts, comments, vehicles)
     app.register_blueprint(auth.bp)
-    app.register_blueprint(users.bp)
-    app.register_blueprint(posts.bp)
-    app.register_blueprint(comments.bp)
-    app.register_blueprint(vehicles.bp)
+    # app.register_blueprint(users.bp)
+    # app.register_blueprint(posts.bp)
+    # app.register_blueprint(comments.bp)
+    # app.register_blueprint(vehicles.bp)
 
     return app

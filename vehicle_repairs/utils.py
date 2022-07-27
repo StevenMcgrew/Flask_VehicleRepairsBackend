@@ -11,7 +11,7 @@ def is_email_valid(email):
 
 def is_username_valid(username):
     username_regex_pattern = r"^\w+$"
-    if username < 3 or username > 20 or not re.fullmatch(username_regex_pattern, username):
+    if len(username) < 3 or len(username) > 20 or not re.fullmatch(username_regex_pattern, username):
         return False
     return True
 
@@ -20,14 +20,14 @@ def is_password_valid(password):
         return False
     return True
 
-def is_email_taken(User, _email):
+def is_email_available(User, _email):
     user_with_that_email = User.query.filter_by(email=_email).first()
     if user_with_that_email:
-        return True
-    return False
+        return False
+    return True
 
-def is_username_taken(User, _username):
+def is_username_available(User, _username):
     user_with_that_username = User.query.filter_by(username=_username).first()
     if user_with_that_username:
-        return True
-    return False
+        return False
+    return True
