@@ -15,7 +15,7 @@ class AcctType(enum.Enum):
 class AcctStatus(enum.Enum):
     ACTIVE = 'active'
     ON_HOLD = 'on_hold'
-    DELETED = 'deleted'
+    CANCELLED = 'cancelled'
 
 
 class UITheme(enum.Enum):

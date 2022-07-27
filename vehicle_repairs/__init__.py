@@ -38,7 +38,7 @@ def create_app(test_config=None):
     # Register Blueprints
     from .api import (auth, users, posts, comments, vehicles)
     app.register_blueprint(auth.bp)
-    # app.register_blueprint(users.bp)
+    app.register_blueprint(users.bp)
     # app.register_blueprint(posts.bp)
     # app.register_blueprint(comments.bp)
     # app.register_blueprint(vehicles.bp)
