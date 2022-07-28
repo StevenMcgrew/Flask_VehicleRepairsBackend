@@ -1,2 +1,8 @@
-# Flask_VehicleRepairsBackend
-Built with Python, Flask, Flask-Migrate, and a PostgreSQL database. This backend API is for a web app about vehicle repairs. Users can post step-by-step instructions for the car repairs they have done, and they can search and view other car repairs posts.
+# Flask API for a Vehile Repairs Blog
+Built with:
+* Python
+* Flask-SQLAlchemy
+* Flask-Migrate
+
+This API is built for an application where people can document their vehicle repairs and share their step-by-step procedures with the ability to add images for each step. They can also search for repairs that have been posted by other users. (*Work in progress. Not all routes finished.)
+

@@ -20,20 +20,18 @@ def is_password_valid(password):
         return False
     return True
 
-def get_email_from_db(User, _email):
+def is_email_available(User, _email):
     try:
-        user = User.query.filter_by(email=_email).first()
-        if user:
-            return user.email
-        return ''
+        if User.query.filter_by(email=_email).first():
+            return False
+        return True
     except Exception as err:
         abort(500, f'Error: {str(err)}')
 
-def get_username_from_db(User, _username):
+def is_username_available(User, _username):
     try:
-        user = User.query.filter_by(username=_username).first()
-        if user:
-            return user.username
-        return ''
+        if User.query.filter_by(username=_username).first():
+            return False
+        return True
     except Exception as err:
         abort(500, f'Error: {str(err)}')

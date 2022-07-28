@@ -39,3 +39,18 @@ class User(db.Model):
     theme = db.Column(db.String(20), nullable=False, server_default='light')
     created_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_on = db.Column(db.TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'), server_onupdate=FetchedValue())
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'email': self.email,
+            'username': self.username,
+            'type': self.type,
+            'status': self.status,
+            'profile_pic': self.profile_pic,
+            'vehicles_history': self.vehicles_history,
+            'views_history': self.views_history,
+            'following': self.following,
+            'prefers_notifications': self.prefers_notifications,
+            'theme': self.theme
+        }
