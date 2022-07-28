@@ -12,6 +12,9 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.post('/sessions')
 def login():
+    if 'email' not in request.json or 'password' not in request.json:
+        return abort(400, 'Incomplete JSON data. You must supply email and password.')
+    
     _email = request.json['email']
     _password = request.json['password']
 
@@ -20,20 +23,14 @@ def login():
     if not is_password_valid(_password):
         abort(400, 'Password must be between 8 and 128 characters in length.')
 
-    user = None
-    try:
-        user = User.query.filter_by(email=_email).first()
-    except Exception as err:
-        abort(500, f'Error: {str(err)}')
+    user = User.query.filter_by(email=_email).first_or_404()
 
-    if not user:
-        abort(400, 'No account with that email address was found.')
     if user.status == 'on_hold':
         abort(400, f'The account for {user.username} has been placed on hold.')
     if user.status == 'cancelled':
         abort(400, f'The account for {user.username} was cancelled and is no longer in use.')
     if not check_password_hash(user.password, _password):
-        abort(400, 'Incorrect password.')
+        abort(404)
 
     session.clear()
     session['user_id'] = user.id

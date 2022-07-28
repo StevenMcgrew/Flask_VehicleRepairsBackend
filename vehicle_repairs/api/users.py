@@ -1,6 +1,6 @@
 from ..shared_db import db
 from werkzeug.security import generate_password_hash
-from flask import Blueprint, request, abort, jsonify
+from flask import Blueprint, request, abort, jsonify, session
 from ..utils import is_email_valid, is_password_valid, is_username_valid, get_email_from_db, get_username_from_db
 from ..models.user import User
 
@@ -33,6 +33,9 @@ def get_username(username: str):
 
 @bp.post('')
 def signup():
+    if 'email' not in request.json or 'username' not in request.json or 'password' not in request.json:
+        return abort(400, 'Incomplete JSON data. You must supply email, username, and password.')
+
     _email = request.json['email']
     _username = request.json['username']
     _password = request.json['password']
@@ -62,6 +65,34 @@ def signup():
 
         return jsonify(success=True)
 
+    except Exception as err:
+        db.session.rollback()
+        abort(500, f'Error: {str(err)}')
+
+############################################
+#   "Delete" user
+############################################
+
+@bp.delete('')
+def delete_user():
+    user_id = session.get('user_id')
+
+    if user_id is None:
+        abort(400, 'You must be logged in to delete your account.')
+
+    user = User.query.get_or_404(user_id)
+    user.email = 'deleted'
+    user.password = 'deleted'
+    user.status  = 'cancelled'
+    user.profile_pic = None
+    user.vehicles_history = None
+    user.views_history = None
+    user.following = None
+
+    try:
+        db.session.commit()
+        session.clear()
+        return jsonify(success=True)
     except Exception as err:
         db.session.rollback()
         abort(500, f'Error: {str(err)}')
