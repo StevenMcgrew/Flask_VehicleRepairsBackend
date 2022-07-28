@@ -13,7 +13,7 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.post('/sessions')
 def login():
     if 'email' not in request.json or 'password' not in request.json:
-        return abort(400, 'Incomplete JSON data. You must supply email and password.')
+        abort(400, 'Incomplete JSON data. You must supply email and password.')
     
     _email = request.json['email']
     _password = request.json['password']
