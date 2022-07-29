@@ -11,11 +11,6 @@ This backend is built for an application where people can document their vehicle
 ### **API routes completed thus far:**
 <br/>
 
-auth endpoints| description|
--|-|
-POST /auth/signup| Request body example<br/>```JSON{
-    "email": "johnson@email.com",
-	"username": "johnson",
-	"password": "12345678"
-}
-```
+|auth|Information|
+|-|-|
+|POST auth/signup|Request body example:<pre><code>{<br/>    "email": "johnson@email.com",<br/>    "username": "johnson",<br/>    "password": "12345678"<br/>}</code></pre>|
