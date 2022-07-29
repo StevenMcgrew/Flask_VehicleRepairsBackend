@@ -2,8 +2,6 @@
 
 [![Linkedin Badge](https://img.shields.io/badge/-Steven_McGrew-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/steven-mcgrew/)
 
-<br/>
-
 ### **Languages and Tools:**
 
 <div>
@@ -13,7 +11,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="60"/>
   <img src="" alt="" width="60"/>&nbsp;
 </div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flask &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLAlchemy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PostgreSQL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flask &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLAlchemy &nbsp;&nbsp;&nbsp;&nbsp; PostgreSQL
 <br/>
 <br/>
 
