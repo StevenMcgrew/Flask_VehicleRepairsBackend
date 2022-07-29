@@ -67,14 +67,14 @@ def login():
     if not is_password_valid(_password):
         abort(400, 'Password must be between 8 and 128 characters in length.')
 
-    user = User.query.filter_by(email=_email).first_or_404()
+    user = User.query.filter_by(email=_email).first_or_404('Email address or password incorrect.')
 
     if user.status == 'on_hold':
         abort(400, f'The account for {user.username} has been placed on hold.')
     if user.status == 'cancelled':
         abort(400, f'The account for {user.username} was cancelled and is no longer in use.')
     if not check_password_hash(user.password, _password):
-        abort(404)
+        abort(404, 'Email address or password incorrect.')
 
     session.clear()
     session['user_id'] = user.id
