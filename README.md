@@ -30,8 +30,6 @@ This backend is built for an application where people can document their vehicle
 |                   | GET /users/usernames/{username}/is-available |
 
 <br/>
-<br/>
-
 
 ### **PostgreSQL Database:**
 <br/>
