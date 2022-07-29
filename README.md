@@ -11,10 +11,10 @@ This backend is built for an application where people can document their vehicle
 ### **API routes completed thus far:**
 <br/>
 
-| auth             | users                                        |
-|------------------|----------------------------------------------|
-| POST auth/signup | DELETE /users                                |
-| POST auth/login  | PUT /users/email                             |
-| POST auth/logout | PUT /users/username                          |
-|                  | GET /users/emails/{email}/is-available       |
-|                  | GET /users/usernames/{username}/is-available |
+| auth              | users                                        |
+|-------------------|----------------------------------------------|
+| POST /auth/signup | DELETE /users                                |
+| POST /auth/login  | PUT /users/email                             |
+| POST /auth/logout | PUT /users/username                          |
+|                   | GET /users/emails/{email}/is-available       |
+|                   | GET /users/usernames/{username}/is-available |
