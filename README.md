@@ -35,3 +35,8 @@ This backend is built for an application where people can document their vehicle
 <br/>
 <img src="https://github.com/StevenMcgrew/Flask_VehicleRepairsBackend/blob/master/ERD_vehicle_repairs.png?raw=true" />
 
+<br/>
+
+### **Example data chart (using pandas, numpy, matplotlib.pyplot):**
+<br/>
+<img src="https://github.com/StevenMcgrew/Flask_VehicleRepairsBackend/blob/master/fake_data_chart.png?raw=true" />
