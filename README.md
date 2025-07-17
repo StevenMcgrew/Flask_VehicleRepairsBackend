@@ -1,4 +1,5 @@
 # Flask Backend for a Vehicle Repairs Blog
+(*Work in progress. Not all routes finished.)
 
 [![Linkedin Badge](https://img.shields.io/badge/-Steven_McGrew-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/steven-mcgrew/)
 
@@ -15,7 +16,7 @@
 <br/>
 <br/>
 
-This backend is built for an application where people can document their vehicle repairs and share their step-by-step procedures with the ability to add images for each step. They can also search for repairs that have been posted by other users. (*Work in progress. Not all routes finished.)
+This backend is built for an application where people can document their vehicle repairs and share their step-by-step procedures with the ability to add images for each step. They can also search for repairs that have been posted by other users. 
 <br/>
 <br/>
 ### **API routes completed thus far:**
